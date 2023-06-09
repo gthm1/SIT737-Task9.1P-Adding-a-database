@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit <%= friend.name %></title>
+</head>
+<body>
+  <h1>Edit <%= friend.name %></h1>
+
+  <form action="/friends/<%= friend._id %>?_method=PUT" method="POST">
+    <input type="text" name="friend[name]" value="<%= friend.name %>" required>
+    <input type="text" name="friend[hobbies]" value="<%= friend.hobbies.join(', ') %>" required>
+    <input type="text" name="friend[placesOfInterest]" value="<%= friend.placesOfInterest.join(', ') %>" required>
+    <button type="submit">Save Changes</button>
+  </form>
+</body>
+</html>

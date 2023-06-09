@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  <h1>Friends</h1>
+
+  <ul>
+    <% friends.forEach(friend => { %>
+      <li>
+        <a href="/friends/<%= friend._id %>"><%= friend.name %></a>
+      </li>
+    <% }) %>
+  </ul>
+
+  <h2>Add Friend</h2>
+  <form action="/friends" method="POST">
+    <input type="text" name="friend[name]" placeholder="Name" required>
+    <input type="text" name="friend[hobbies]" placeholder="Hobbies (comma-separated)" required>
+    <input type="text" name="friend[placesOfInterest]" placeholder="Places of Interest (comma-separated)" required>
+    <button type="submit">Add Friend</button>
+  </form>
+</body>
+</html>
