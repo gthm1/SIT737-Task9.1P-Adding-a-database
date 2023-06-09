@@ -1,0 +1,10 @@
+apiVersion: atlas.mongodb.com/v1
+kind: AtlasProject
+metadata:
+  name: friends-app-project
+spec:
+  name: Friends App
+  projectIpAccessList:
+    - ipAddress: "0.0.0.0/0"
+      comment: "Allow access to database from everyone"
+    

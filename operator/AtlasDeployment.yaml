@@ -1,0 +1,13 @@
+apiVersion: atlas.mongodb.com/v1
+kind: AtlasDeployment
+metadata:
+  name: my-atlas-deployment
+spec:
+  projectRef:
+    name: friends-app-project
+  deploymentSpec:
+    name: friends-app-deployment
+    providerSettings:
+      instanceSizeName: M2
+      providerName: AWS
+      regionName: US_EAST_1
