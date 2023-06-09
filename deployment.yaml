@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express-app
+  template:
+    metadata:
+      labels:
+        app: express-app
+    spec:
+      containers:
+      - name: express-app
+        image: ewq321/express-app
+        ports:
+        - containerPort: 3000
+        env:
+        - name: CONNECTION_STRING_STANDARD
+          valueFrom:
+            secretKeyRef:
+              name: friends-app-friends-app-deployment-theuser
+              key: connectionStringStandard
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: friends-app-friends-app-deployment-theuser
+              key: username
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: friends-app-friends-app-deployment-theuser
+              key: password
